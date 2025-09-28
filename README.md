@@ -179,14 +179,6 @@ src/
 ### Sequence Diagram
 ![Sequence Diagram](assets/vending-machine-seq-d.png)
 
-
-## Contributing
-
-1. Follow existing code style and patterns
-2. Add tests for new functionality
-3. Update documentation for significant changes
-4. Ensure all tests pass before submitting
-
 ## License
 
 This project is part of a technical assessment and is intended for evaluation purposes.
