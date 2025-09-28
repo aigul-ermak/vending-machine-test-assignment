@@ -81,13 +81,12 @@ public class VendingMachine {
         try {
             Item item = findItem(code);
 
-            if (!item.canDispense()) {
-                return DispenseResult.cannotDispense(item);
-            }
-
-
             if (!item.isInStock()) {
                 return DispenseResult.outOfStock(item);
+            }
+
+            if (!item.canDispense()) {
+                return DispenseResult.cannotDispense(item);
             }
 
 

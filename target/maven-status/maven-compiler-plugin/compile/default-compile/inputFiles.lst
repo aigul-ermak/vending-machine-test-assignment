@@ -1,1 +1,13 @@
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\exception\InsufficientFundsException.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\exception\ItemNotAvailableException.java
 C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\Main.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\service\CoinHandler.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\exception\ItemNotFoundException.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\ui\ConsoleUI.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\service\VendingMachine.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\model\Item.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\model\PaymentResult.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\model\Drink.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\exception\VendingMachineException.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\model\DispenseResult.java
+C:\dev\test-assignment\vending-machine-test-assignmnet\src\main\java\com\vendingmachine\model\Snack.java
