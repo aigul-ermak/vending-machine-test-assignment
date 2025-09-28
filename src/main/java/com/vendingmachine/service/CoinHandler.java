@@ -5,10 +5,10 @@ import java.util.*;
 
 public class CoinHandler {
     private static final List<Integer> ACCEPTED_COINS = Arrays.asList(
-        1,   // 1 dollar coin
-        2,   // 2 dollar coin
-        5,   // 5 dollar coin
-        10   // 10 dollar coin
+        1,
+        2,
+        5,
+        10
     );
 
     private final Set<Integer> acceptedCoinsSet;
