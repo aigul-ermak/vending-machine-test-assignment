@@ -5,9 +5,8 @@ public class InsufficientFundsException extends VendingMachineException {
     private final int requiredAmount;
 
     public InsufficientFundsException(int totalPaid, int requiredAmount) {
-        super(String.format("Insufficient funds. Paid: $%d.%02d, Required: $%d.%02d",
-                totalPaid / 100, totalPaid % 100,
-                requiredAmount / 100, requiredAmount % 100));
+        super(String.format("Insufficient funds. Paid: $%d, Required: $%d",
+                totalPaid, requiredAmount));
         this.totalPaid = totalPaid;
         this.requiredAmount = requiredAmount;
     }

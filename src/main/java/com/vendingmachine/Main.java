@@ -3,6 +3,8 @@ package com.vendingmachine;
 import com.vendingmachine.model.Drink;
 import com.vendingmachine.model.Snack;
 import com.vendingmachine.service.VendingMachine;
+import com.vendingmachine.exception.VendingMachineException;
+import com.vendingmachine.ui.ConsoleUI;
 
 import java.time.LocalDate;
 
@@ -10,19 +12,17 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Vending Machine System");
         System.out.println("======================");
-        System.out.println("Starting up...\n");
+        System.out.println("Initializing system...\n");
 
         VendingMachine vendingMachine = initializeVendingMachine();
 
-        vendingMachine.displayInventory();
-
-        System.out.println("\nPress Enter to exit...");
-        try {
-            System.in.read();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (vendingMachine == null) {
+            System.err.println("Failed to initialize vending machine. Exiting.");
+            return;
         }
-        System.out.println("Goodbye!");
+
+        ConsoleUI consoleUI = new ConsoleUI(vendingMachine);
+        consoleUI.start();
     }
 
     private static VendingMachine initializeVendingMachine() {
@@ -30,34 +30,43 @@ public class Main {
 
         System.out.println("Loading inventory...\n");
 
+        try {
+            Snack chips = new Snack("S1", "Lays Classic Chips", 2,
+                    LocalDate.now().minusDays(5), 30);
+            chips.setStock(5);
+            machine.addItem(chips);
 
-        Snack chips = new Snack("S1", "Lays Classic Chips", 150,
-                LocalDate.now().minusDays(5), 30);
-        chips.setStock(5);
-        machine.addItem(chips);
+            Snack cookies = new Snack("S2", "Chocolate Cookies", 3,
+                    LocalDate.now().minusDays(2), 14);
+            cookies.setStock(3);
+            machine.addItem(cookies);
 
-        Snack cookies = new Snack("S2", "Chocolate Cookies", 200,
-                LocalDate.now().minusDays(2), 14);
-        cookies.setStock(3);
-        machine.addItem(cookies);
+            Snack candy = new Snack("S3", "Snickers Bar", 2,
+                    LocalDate.now().minusDays(50), 60);
+            candy.setStock(4);
+            machine.addItem(candy);
 
-        Snack candy = new Snack("S3", "Snickers Bar", 175,
-                LocalDate.now().minusDays(50), 60);
-        candy.setStock(4);
-        machine.addItem(candy);
+            Drink coke = new Drink("D1", "Coca-Cola", 2, 330);
+            coke.setStock(6);
+            machine.addItem(coke);
 
+            Drink water = new Drink("D2", "Spring Water", 1, 500);
+            water.setStock(8);
+            machine.addItem(water);
 
-        Drink coke = new Drink("D1", "Coca-Cola", 125, 330);
-        coke.setStock(6);
-        machine.addItem(coke);
+            Drink juice = new Drink("D3", "Orange Juice", 2, 45);
+            juice.setStock(2);
+            machine.addItem(juice);
 
-        Drink water = new Drink("D2", "Spring Water", 100, 500);
-        water.setStock(8);
-        machine.addItem(water);
+            System.out.println("Inventory loaded successfully!");
+            System.out.println("   - " + machine.getSnackCount() + " snack types");
+            System.out.println("   - " + machine.getDrinkCount() + " drink types");
 
-        Drink juice = new Drink("D3", "Orange Juice", 150, 45);
-        juice.setStock(2);
-        machine.addItem(juice);
+        } catch (VendingMachineException e) {
+            System.err.println("Error loading inventory: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
 
         return machine;
     }

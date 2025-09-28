@@ -21,9 +21,8 @@ public class PaymentResult {
     }
 
     public static PaymentResult insufficientFunds(int totalPaid, int required) {
-        String msg = String.format("Insufficient funds. Paid: $%d.%02d, Required: $%d.%02d",
-                totalPaid / 100, totalPaid % 100,
-                required / 100, required % 100);
+        String msg = String.format("Insufficient funds. Paid: $%d, Required: $%d",
+                totalPaid, required);
         return new PaymentResult(false, totalPaid, null, msg);
     }
 
@@ -51,8 +50,8 @@ public class PaymentResult {
     @Override
     public String toString() {
         if (success) {
-            return String.format("Payment successful. Total: $%d.%02d, Change: %s",
-                    totalPaid / 100, totalPaid % 100, formatChange());
+            return String.format("Payment successful. Total: $%d, Change: %s",
+                    totalPaid, formatChange());
         } else {
             return "Payment failed: " + message;
         }
@@ -65,11 +64,7 @@ public class PaymentResult {
         StringBuilder sb = new StringBuilder();
         for (Integer coin : change) {
             if (sb.length() > 0) sb.append(", ");
-            if (coin >= 100) {
-                sb.append("$").append(coin / 100);
-            } else {
-                sb.append(coin).append("¢");
-            }
+            sb.append("$").append(coin);
         }
         return sb.toString();
     }

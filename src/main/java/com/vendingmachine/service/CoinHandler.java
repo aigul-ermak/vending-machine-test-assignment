@@ -5,12 +5,10 @@ import java.util.*;
 
 public class CoinHandler {
     private static final List<Integer> ACCEPTED_COINS = Arrays.asList(
-        1,
-        5,
-        10,
-        25,
-        50,
-        100
+        1,   // 1 dollar coin
+        2,   // 2 dollar coin
+        5,   // 5 dollar coin
+        10   // 10 dollar coin
     );
 
     private final Set<Integer> acceptedCoinsSet;
@@ -96,11 +94,7 @@ public class CoinHandler {
         for (int i = 0; i < ACCEPTED_COINS.size(); i++) {
             if (i > 0) sb.append(", ");
             int coin = ACCEPTED_COINS.get(i);
-            if (coin >= 100) {
-                sb.append("$").append(coin / 100);
-            } else {
-                sb.append(coin).append("¢");
-            }
+            sb.append("$").append(coin);
         }
         return sb.toString();
     }
@@ -121,7 +115,7 @@ public class CoinHandler {
             int coin = entry.getKey();
             int count = entry.getValue();
 
-            String coinStr = coin >= 100 ? "$" + (coin / 100) : coin + "¢";
+            String coinStr = "$" + coin;
             if (count > 1) {
                 sb.append(count).append(" × ").append(coinStr);
             } else {

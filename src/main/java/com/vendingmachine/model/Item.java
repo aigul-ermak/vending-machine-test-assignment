@@ -49,11 +49,10 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return String.format("%s - %s: $%d.%02d (Stock: %d)",
+        return String.format("%s - %s: $%d (Stock: %d)",
                 code,
                 description,
-                price / 100,
-                price % 100,
+                price,
                 stock);
     }
 }
