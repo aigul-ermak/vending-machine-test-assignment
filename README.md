@@ -179,9 +179,6 @@ src/
 ### Sequence Diagram
 ![Sequence Diagram](assets/vending-machine-seq-d.png)
 
-## Documentation
-
-- [Technical Documentation](docs/class-diagram.md) - Detailed UML diagrams and system architecture
 
 ## Contributing
 
